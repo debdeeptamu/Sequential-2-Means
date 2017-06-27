@@ -62,6 +62,24 @@ S2M=function(Beta,lower,upper,l)
               abs.post.median=abs.post.median
     ))
 }
+# \value{
+#   %%  ~Describe the value returned
+#   %%  If it is a LIST, use
+#   \item{N }{the posterior sample size}
+#   \item{p }{the total number of variables}
+#   
+#   \item{H.b.i }{the estimated number of signals corresponding to each $b_i$}
+#   \item{b.i }{the values of the tuning parameter}
+#   
+#   \item{abs.post.median }{medians of the absolute values of the posterior samples of each variable}
+#   
+
+
+
+
+
+
+
 ############################
 #make a H_b_i v.s. b_i plot#
 ############################
@@ -73,6 +91,10 @@ Hbi.vs.bi=function(S2M)
 {
   plot(S2M$b.i,S2M$H.b.i)
 }
+
+
+
+
 
 ###############################
 #variable selection results   #
