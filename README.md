@@ -12,4 +12,4 @@ Description: This package contains functions to implement Sequential 2 means pro
 Reference
 
 Hanning Li and Debdeep Pati. Variable Selection Using Shrinkage Priors
-(2017), Computational Statistics and Data Analysis. Volume 107, Pages 107-119.
+(2017), Computational Statistics and Data Analysis. Volume 107, Pages 107-119. http://www.sciencedirect.com/science/article/pii/S0167947316302353
