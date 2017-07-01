@@ -1,6 +1,8 @@
 ###################
 #S2M main function#
 ###################
+
+
 #This function creates a sequence $\{b_i\}$ of $l$ values of the tuning parameter and implements Sequential-2-Means on the posterior samples to obtain variable selection results corresponding to each value in the sequence $\{b_i\}$. }
 #\arguments{
 # \item{Beta}{
@@ -15,6 +17,17 @@
 # \item{l}{
 #   the number of chosen values of the tuning parameter
 # }
+
+
+# \value{
+#   \item{N }{the posterior sample size}
+#   \item{p }{the total number of variables}
+#   
+#   \item{H.b.i }{the estimated number of signals corresponding to each $b_i$}
+#   \item{b.i }{the values of the tuning parameter}
+#   
+#   \item{abs.post.median }{medians of the absolute values of the posterior samples of each variable}
+#   
 S2M=function(Beta,lower,upper,l)
 {
   
@@ -62,21 +75,6 @@ S2M=function(Beta,lower,upper,l)
               abs.post.median=abs.post.median
     ))
 }
-# \value{
-#   %%  ~Describe the value returned
-#   %%  If it is a LIST, use
-#   \item{N }{the posterior sample size}
-#   \item{p }{the total number of variables}
-#   
-#   \item{H.b.i }{the estimated number of signals corresponding to each $b_i$}
-#   \item{b.i }{the values of the tuning parameter}
-#   
-#   \item{abs.post.median }{medians of the absolute values of the posterior samples of each variable}
-#   
-
-
-
-
 
 
 
@@ -95,7 +93,6 @@ Hbi.vs.bi=function(S2M)
 
 
 
-
 ###############################
 #variable selection results   #
 #given a particular value of H#
@@ -105,12 +102,17 @@ Hbi.vs.bi=function(S2M)
 #   \item{S2M}{a list obtained from the function \code{S2M}.}
 #   \item{H}{the estimated number of signals}
 # }
+# \value{
+#   \item{var.selected}{The indices of selected variables}
+#  }
+
 S2M.vs=function(S2M,H)
 {
 
   p=S2M$p
   abs.post.median=S2M$abs.post.median
-  return(order(abs.post.median)[p:(p-H+1)])
+  var.selected=order(abs.post.median)[p:(p-H+1)]
+  return(var.selected)
 }
 
 
